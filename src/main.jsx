@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import store from './Store.js'
 export const server="http://localhost:4000/api/v1";
 createRoot(document.getElementById('root')).render(
- 
+  <StrictMode>
     <Provider store={store}>
     <ChakraBaseProvider theme={theme}>
      
@@ -16,5 +16,5 @@ createRoot(document.getElementById('root')).render(
     </Provider>
    
    
- 
+  </StrictMode>,
 )
