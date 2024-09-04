@@ -5,7 +5,6 @@ import './index.css'
 import { ChakraBaseProvider, ColorModeScript,theme } from '@chakra-ui/react'
 import { Provider } from 'react-redux'
 import store from './store.js'
-// export const server="https://backend-2i0n.onrender.com/";
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>

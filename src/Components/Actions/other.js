@@ -12,7 +12,7 @@ export const contactUs = (name, email, message) => async dispatch => {
     dispatch({ type: 'contactRequest' });
 
     const { data } = await axios.post(
-      `${import.meta.env.VITE_SERVER}/contact`,
+      `${import.meta.env.VITE_SERVER}/api/v1/contact`,
       { name, email, message },
       config
     );
@@ -38,7 +38,7 @@ export const courseRequest = (name, email, course) => async dispatch => {
     dispatch({ type: 'courseRequestRequest' });
 
     const { data } = await axios.post(
-      `${import.meta.env.VITE_SERVER}/courserequest`,
+      `${import.meta.env.VITE_SERVER}/api/v1/courserequest`,
       { name, email, course },
       config
     );

@@ -6,7 +6,7 @@ export const updateProfile = (name, email) => async dispatch => {
     dispatch({ type: 'updateProfileRequest' });
 
     const { data } = await axios.put(
-      `${import.meta.env.VITE_SERVER}/updateprofile`,
+      `${import.meta.env.VITE_SERVER}/api/v1/updateprofile`,
       {
         name,
         email,
@@ -34,7 +34,7 @@ export const updateProfilePicture = formdata => async dispatch => {
     dispatch({ type: 'updateProfilePictureRequest' });
 
     const { data } = await axios.put(
-      `${import.meta.env.VITE_SERVER}/updateprofilepicture`,
+      `${import.meta.env.VITE_SERVER}/api/v1/updateprofilepicture`,
       formdata,
       {
         headers: {
@@ -59,7 +59,7 @@ export const changePassword = (oldPassword, newPassword) => async dispatch => {
     dispatch({ type: 'changePasswordRequest' });
 
     const { data } = await axios.put(
-      `${import.meta.env.VITE_SERVER}/changepassword`,
+      `${import.meta.env.VITE_SERVER}/api/v1/changepassword`,
       {
         oldPassword,
         newPassword,
@@ -95,7 +95,7 @@ export const forgetPassword = email => async dispatch => {
     };
 
     const { data } = await axios.post(
-      `${import.meta.env.VITE_SERVER}/forgetpassword`,
+      `${import.meta.env.VITE_SERVER}/api/v1/forgetpassword`,
       {
         email,
       },
@@ -123,7 +123,7 @@ export const resetPassword = (token, password) => async dispatch => {
     };
 
     const { data } = await axios.put(
-      `${import.meta.env.VITE_SERVER}/resetpassword/${token}`,
+      `${import.meta.env.VITE_SERVER}/api/v1/resetpassword/${token}`,
       {
         password,
       },
@@ -152,7 +152,7 @@ export const addToPlaylist = id => async dispatch => {
     };
 
     const { data } = await axios.post(
-      `${import.meta.env.VITE_SERVER}/addtoplaylist`,
+      `${import.meta.env.VITE_SERVER}/api/v1/addtoplaylist`,
       {
         id,
       },
@@ -177,7 +177,7 @@ export const removeFromPlaylist = id => async dispatch => {
     };
 
     const { data } = await axios.delete(
-      `${import.meta.env.VITE_SERVER}/removefromplaylist?id=${id}`,
+      `${import.meta.env.VITE_SERVER}/api/v1/removefromplaylist?id=${id}`,
       config
     );
 

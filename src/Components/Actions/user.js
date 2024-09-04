@@ -4,7 +4,7 @@ import axios from "axios";
 export const login=(email,password)=> async dispatch=>{
     try {
         dispatch({type:"loginRequest"})
-        const {data}= await axios.post(`${import.meta.env.VITE_SERVER}/login`,
+        const {data}= await axios.post(`${import.meta.env.VITE_SERVER}/api/v1/login`,
             {email,password},
             {
                 headers:{
@@ -22,7 +22,7 @@ export const register = formdata => async dispatch => {
     try {
       dispatch({ type: 'registerRequest' });
   
-      const { data } = await axios.post(`${import.meta.env.VITE_SERVER}/register`, formdata, {
+      const { data } = await axios.post(`${import.meta.env.VITE_SERVER}/api/v1/register`, formdata, {
         headers: {
           'Content-type': 'multipart/form-data',
         },
@@ -40,7 +40,7 @@ export const register = formdata => async dispatch => {
       dispatch({ type: 'loadUserRequest' });
   
       const { data } = await axios.get(
-        `${import.meta.env.VITE_SERVER}/me`,
+        `${import.meta.env.VITE_SERVER}/api/v1/me`,
   
         {
           withCredentials: true,
@@ -55,7 +55,7 @@ export const register = formdata => async dispatch => {
     try {
       dispatch({ type: 'logoutRequest' });
   
-      const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/logout`, {
+      const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/api/v1/logout`, {
         withCredentials: true,
       });
       dispatch({ type: 'logoutSuccess', payload: data.message });
@@ -67,7 +67,7 @@ export const register = formdata => async dispatch => {
     try {
       dispatch({ type: 'buySubscriptionRequest' });
   
-      const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/subscribe`, {
+      const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/api/v1/subscribe`, {
         withCredentials: true,
       });
   
@@ -84,7 +84,7 @@ export const register = formdata => async dispatch => {
     try {
       dispatch({ type: 'cancelSubscriptionRequest' });
   
-      const { data } = await axios.delete(`${import.meta.env.VITE_SERVER}/subscribe/cancel`, {
+      const { data } = await axios.delete(`${import.meta.env.VITE_SERVER}/api/v1/subscribe/cancel`, {
         withCredentials: true,
       });
   

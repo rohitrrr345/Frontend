@@ -25,7 +25,7 @@ import { buySubscription } from '../Actions/user';
     const subscribeHandler = async () => {
       const {
         data: { key },
-      } = await axios.get(`${import.meta.env.VITE_SERVER}/razorpaykey`);
+      } = await axios.get(`${import.meta.env.VITE_SERVER}/api/v1/razorpaykey`);
   
       setKey(key);
       console.log(key)

@@ -8,7 +8,7 @@ export const getAllCourses =
       dispatch({ type: 'allCoursesRequest' });
 
       const { data } = await axios.get(
-        `${import.meta.env.VITE_SERVER}/courses?keyword=${keyword}&category=${category}`
+        `${import.meta.env.VITE_SERVER}/api/v1/courses?keyword=${keyword}&category=${category}`
       );
 
       dispatch({ type: 'allCoursesSuccess', payload: data.courses });
@@ -24,7 +24,7 @@ export const getCourseLectures = id => async dispatch => {
   try {
     dispatch({ type: 'getCourseRequest' });
 
-    const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/course/${id}`, {
+    const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/api/v1/course/${id}`, {
       withCredentials: true,
     });
 
