@@ -49,7 +49,7 @@ import { buySubscription } from '../Actions/user';
             description: 'Get access to all premium content',
             image: logo,
             subscription_id: subscriptionId,
-            callback_url: `${server}/paymentverification`,
+            callback_url: `${import.meta.env.VITE_SERVER}/api/v1/paymentverification`,
             prefill: {
               name: user.name,
               email: user.email,
