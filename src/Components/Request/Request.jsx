@@ -14,6 +14,7 @@ import {
     import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { courseRequest } from '../Actions/other';
+import toast from 'react-hot-toast';
   
   const Request = () => {
     const [name, setName] = useState('');
@@ -38,7 +39,7 @@ import { courseRequest } from '../Actions/other';
       }
   
       if (stateMessage) {
-        toast.success(stateMessage);
+        toastst.success(stateMessage);
         dispatch({ type: 'clearMessage' });
       }
     }, [dispatch, error, stateMessage]);
