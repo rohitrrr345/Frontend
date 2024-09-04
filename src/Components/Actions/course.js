@@ -1,4 +1,4 @@
-import { server } from "../../main";
+// import { server } from "../../main";
 import axios from 'axios';
 
 export const getAllCourses =
@@ -8,7 +8,7 @@ export const getAllCourses =
       dispatch({ type: 'allCoursesRequest' });
 
       const { data } = await axios.get(
-        `${server}/courses?keyword=${keyword}&category=${category}`
+        `${import.meta.env.VITE_SERVER}/courses?keyword=${keyword}&category=${category}`
       );
 
       dispatch({ type: 'allCoursesSuccess', payload: data.courses });
@@ -24,7 +24,7 @@ export const getCourseLectures = id => async dispatch => {
   try {
     dispatch({ type: 'getCourseRequest' });
 
-    const { data } = await axios.get(`${server}/course/${id}`, {
+    const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/course/${id}`, {
       withCredentials: true,
     });
 

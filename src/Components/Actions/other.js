@@ -1,4 +1,3 @@
-import { server } from '../../main';
 import axios from 'axios';
 
 export const contactUs = (name, email, message) => async dispatch => {
@@ -13,7 +12,7 @@ export const contactUs = (name, email, message) => async dispatch => {
     dispatch({ type: 'contactRequest' });
 
     const { data } = await axios.post(
-      `${server}/contact`,
+      `${import.meta.env.VITE_SERVER}/contact`,
       { name, email, message },
       config
     );
@@ -39,7 +38,7 @@ export const courseRequest = (name, email, course) => async dispatch => {
     dispatch({ type: 'courseRequestRequest' });
 
     const { data } = await axios.post(
-      `${server}/courserequest`,
+      `${import.meta.env.VITE_SERVER}/courserequest`,
       { name, email, course },
       config
     );

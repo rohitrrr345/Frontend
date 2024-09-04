@@ -11,7 +11,6 @@ import {
   import { useEffect } from 'react';
   import { useDispatch, useSelector } from 'react-redux';
 import { buySubscription } from '../Actions/user';
-  import { server } from "../../main";
   import toast from 'react-hot-toast';
   import logo from  "../../assets/images/logo.png"
   
@@ -26,7 +25,7 @@ import { buySubscription } from '../Actions/user';
     const subscribeHandler = async () => {
       const {
         data: { key },
-      } = await axios.get(`${server}/razorpaykey`);
+      } = await axios.get(`${import.meta.env.VITE_SERVER}/razorpaykey`);
   
       setKey(key);
       console.log(key)

@@ -1,10 +1,10 @@
 import axios from "axios";
-import { server } from "../../main";
+
   
 export const login=(email,password)=> async dispatch=>{
     try {
         dispatch({type:"loginRequest"})
-        const {data}= await axios.post(`${server}/login`,
+        const {data}= await axios.post(`${import.meta.env.VITE_SERVER}/login`,
             {email,password},
             {
                 headers:{
@@ -22,7 +22,7 @@ export const register = formdata => async dispatch => {
     try {
       dispatch({ type: 'registerRequest' });
   
-      const { data } = await axios.post(`${server}/register`, formdata, {
+      const { data } = await axios.post(`${import.meta.env.VITE_SERVER}/register`, formdata, {
         headers: {
           'Content-type': 'multipart/form-data',
         },
@@ -40,7 +40,7 @@ export const register = formdata => async dispatch => {
       dispatch({ type: 'loadUserRequest' });
   
       const { data } = await axios.get(
-        `${server}/me`,
+        `${import.meta.env.VITE_SERVER}/me`,
   
         {
           withCredentials: true,
@@ -55,7 +55,7 @@ export const register = formdata => async dispatch => {
     try {
       dispatch({ type: 'logoutRequest' });
   
-      const { data } = await axios.get(`${server}/logout`, {
+      const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/logout`, {
         withCredentials: true,
       });
       dispatch({ type: 'logoutSuccess', payload: data.message });
@@ -67,7 +67,7 @@ export const register = formdata => async dispatch => {
     try {
       dispatch({ type: 'buySubscriptionRequest' });
   
-      const { data } = await axios.get(`${server}/subscribe`, {
+      const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/subscribe`, {
         withCredentials: true,
       });
   
@@ -84,7 +84,7 @@ export const register = formdata => async dispatch => {
     try {
       dispatch({ type: 'cancelSubscriptionRequest' });
   
-      const { data } = await axios.delete(`${server}/subscribe/cancel`, {
+      const { data } = await axios.delete(`${import.meta.env.VITE_SERVER}/subscribe/cancel`, {
         withCredentials: true,
       });
   

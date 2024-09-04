@@ -1,4 +1,4 @@
-import { server } from '../../main';
+// import { server } from '../../main';
 import axios from 'axios';
 
 export const createCourse = formData => async dispatch => {
@@ -12,7 +12,7 @@ export const createCourse = formData => async dispatch => {
     dispatch({ type: 'createCourseRequest' });
 
     const { data } = await axios.post(
-      `${server}/createcourse`,
+      `${import.meta.env.VITE_SERVER}/createcourse`,
       formData,
       config
     );
@@ -33,7 +33,7 @@ export const deleteCourse = id => async dispatch => {
     };
     dispatch({ type: 'deleteCourseRequest' });
 
-    const { data } = await axios.delete(`${server}/course/${id}`, config);
+    const { data } = await axios.delete(`${import.meta.env.VITE_SERVER}/course/${id}`, config);
 
     dispatch({ type: 'deleteCourseSuccess', payload: data.message });
   } catch (error) {
@@ -55,7 +55,7 @@ export const addLecture = (id, formdata) => async dispatch => {
     dispatch({ type: 'addLectureRequest' });
 
     const { data } = await axios.post(
-      `${server}/course/${id}`,
+      `${import.meta.env.VITE_SERVER}/course/${id}`,
       formdata,
       config
     );
@@ -77,7 +77,7 @@ export const deleteLecture = (courseId, lectureId) => async dispatch => {
     dispatch({ type: 'deleteLectureRequest' });
 
     const { data } = await axios.delete(
-      `${server}/lecture?courseId=${courseId}&lectureId=${lectureId}`,
+      `${import.meta.env.VITE_SERVER}/lecture?courseId=${courseId}&lectureId=${lectureId}`,
       config
     );
 
@@ -97,7 +97,7 @@ export const getAllUsers = () => async dispatch => {
     };
     dispatch({ type: 'getAllUsersRequest' });
 
-    const { data } = await axios.get(`${server}/admin/users`, config);
+    const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/admin/users`, config);
 
     dispatch({ type: 'getAllUsersSuccess', payload: data.users });
   } catch (error) {
@@ -115,7 +115,7 @@ export const updateUserRole = id => async dispatch => {
     };
     dispatch({ type: 'updateUserRoleRequest' });
 
-    const { data } = await axios.put(`${server}/admin/user/${id}`, {}, config);
+    const { data } = await axios.put(`${import.meta.env.VITE_SERVER}/admin/user/${id}`, {}, config);
 
     dispatch({ type: 'updateUserRoleSuccess', payload: data.message });
   } catch (error) {
@@ -133,7 +133,7 @@ export const deleteUser = id => async dispatch => {
     };
     dispatch({ type: 'deleteUserRequest' });
 
-    const { data } = await axios.delete(`${server}/admin/user/${id}`, config);
+    const { data } = await axios.delete(`${import.meta.env.VITE_SERVER}/admin/user/${id}`, config);
 
     dispatch({ type: 'deleteUserSuccess', payload: data.message });
   } catch (error) {
@@ -151,7 +151,7 @@ export const getDashboardStats = () => async dispatch => {
     };
     dispatch({ type: 'getAdminStatsRequest' });
 
-    const { data } = await axios.get(`${server}/admin/stats`, config);
+    const { data } = await axios.get(`${import.meta.env.VITE_SERVER}/admin/stats`, config);
 
     dispatch({ type: 'getAdminStatsSuccess', payload: data });
   } catch (error) {

@@ -1,4 +1,4 @@
-import { server } from '../../main';
+// import { server } from '../../main';
 import axios from 'axios';
 
 export const updateProfile = (name, email) => async dispatch => {
@@ -6,7 +6,7 @@ export const updateProfile = (name, email) => async dispatch => {
     dispatch({ type: 'updateProfileRequest' });
 
     const { data } = await axios.put(
-      `${server}/updateprofile`,
+      `${import.meta.env.VITE_SERVER}/updateprofile`,
       {
         name,
         email,
@@ -34,7 +34,7 @@ export const updateProfilePicture = formdata => async dispatch => {
     dispatch({ type: 'updateProfilePictureRequest' });
 
     const { data } = await axios.put(
-      `${server}/updateprofilepicture`,
+      `${import.meta.env.VITE_SERVER}/updateprofilepicture`,
       formdata,
       {
         headers: {
@@ -59,7 +59,7 @@ export const changePassword = (oldPassword, newPassword) => async dispatch => {
     dispatch({ type: 'changePasswordRequest' });
 
     const { data } = await axios.put(
-      `${server}/changepassword`,
+      `${import.meta.env.VITE_SERVER}/changepassword`,
       {
         oldPassword,
         newPassword,
@@ -95,7 +95,7 @@ export const forgetPassword = email => async dispatch => {
     };
 
     const { data } = await axios.post(
-      `${server}/forgetpassword`,
+      `${import.meta.env.VITE_SERVER}/forgetpassword`,
       {
         email,
       },
@@ -123,7 +123,7 @@ export const resetPassword = (token, password) => async dispatch => {
     };
 
     const { data } = await axios.put(
-      `${server}/resetpassword/${token}`,
+      `${import.meta.env.VITE_SERVER}/resetpassword/${token}`,
       {
         password,
       },
@@ -152,7 +152,7 @@ export const addToPlaylist = id => async dispatch => {
     };
 
     const { data } = await axios.post(
-      `${server}/addtoplaylist`,
+      `${import.meta.env.VITE_SERVER}/addtoplaylist`,
       {
         id,
       },
@@ -177,7 +177,7 @@ export const removeFromPlaylist = id => async dispatch => {
     };
 
     const { data } = await axios.delete(
-      `${server}/removefromplaylist?id=${id}`,
+      `${import.meta.env.VITE_SERVER}/removefromplaylist?id=${id}`,
       config
     );
 
