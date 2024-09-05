@@ -44,7 +44,7 @@ import toast from 'react-hot-toast';
 
       <Container h={'95vh'}>
         <VStack h={'full'} justifyContent="center" spacing={'16'}>
-          <Heading children={'Welcome to CourseBundler'} />
+          <Heading children={'Welcome to CourseBit'} />
   
           <form onSubmit={submitHandler} style={{ width: '100%' }}>
             <Box my={'4'}>
