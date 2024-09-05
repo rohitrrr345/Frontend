@@ -39,7 +39,7 @@ import toast from 'react-hot-toast';
       }
   
       if (stateMessage) {
-        toastst.success(stateMessage);
+        toast.success(stateMessage);
         dispatch({ type: 'clearMessage' });
       }
     }, [dispatch, error, stateMessage]);
